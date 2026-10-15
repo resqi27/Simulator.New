@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f7f1">
+  <meta name="description" content="Deadlock Lab — simulator interaktif untuk memahami Resource Allocation Graph dan Banker's Algorithm.">
+  <title>Deadlock Lab — Interactive OS Learning</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Deadlock Lab beranda" data-view="home">
+      <span class="brand-mark"><span></span><span></span><span></span><span></span></span>
+      <span>deadlock<span class="brand-light">lab</span><small>OPERATING SYSTEMS • INTERACTIVE</small></span>
+    </a>
+    <nav class="top-nav" aria-label="Navigasi utama">
+      <button class="nav-link active" data-view="home">Beranda</button>
+      <button class="nav-link" data-view="learn">Materi</button>
+      <button class="nav-link" data-view="simulator">Simulator</button>
+    </nav>
+    <a class="top-cta" href="#simulator" data-view="simulator">Mulai eksplorasi <span>↗</span></a>
+  </header>
+
+  <main>
+    <section class="view active" id="home-view">
+      <div class="hero wrap">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="pulse-dot"></span> BELAJAR SISTEM OPERASI DENGAN CARA BARU</div>
+          <h1>Pahami deadlock.<br><em>Jelajahi solusinya.</em></h1>
+          <p class="hero-intro">Eksperimen dengan proses dan resource, temukan bagaimana deadlock terbentuk, lalu uji apakah sistem masih berada dalam kondisi aman.</p>
+          <div class="hero-actions">
+            <button class="button primary" data-view="simulator">Mulai simulator <span>→</span></button>
+            <button class="button secondary" data-view="learn">Pelajari konsep <span>↗</span></button>
+          </div>
+          <div class="hero-proof">
+            <div class="avatar-stack"><span>R</span><span>P</span><span>A</span></div>
+            <span>Visual, interaktif, dan ramah pemula</span>
+          </div>
+        </div>
+        <div class="hero-visual" aria-label="Ilustrasi proses dan resource">
+          <div class="visual-topline"><span>LIVE SYSTEM MAP</span><span class="live-status"><i></i> SIMULATION READY</span></div>
+          <div class="graph-stage">
+            <svg class="graph-lines" viewBox="0 0 520 340" aria-hidden="true">
+              <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="#718779"/></marker></defs>
+              <path d="M112 90 C160 75, 188 75, 220 95" marker-end="url(#arrow)"/>
+              <path d="M295 110 C350 120, 360 155, 378 183" marker-end="url(#arrow)"/>
+              <path d="M358 235 C300 280, 245 280, 208 242" marker-end="url(#arrow)"/>
+              <path d="M155 205 C115 180, 95 145, 100 118" marker-end="url(#arrow)"/>
+              <path d="M275 135 C275 155, 275 170, 275 192" marker-end="url(#arrow)" class="line-dashed"/>
+            </svg>
+            <div class="graph-node process node-p1"><small>PROCESS</small><b>P1</b><span>Running</span></div>
+            <div class="graph-node resource node-r1"><small>RESOURCE</small><b>R1</b><span>CPU</span></div>
+            <div class="graph-node process node-p2"><small>PROCESS</small><b>P2</b><span>Waiting</span></div>
+            <div class="graph-node resource node-r2"><small>RESOURCE</small><b>R2</b><span>Printer</span></div>
+            <div class="graph-center"><span class="center-icon">↗</span><b>Resource<br>allocation</b><small>MAP VIEW</small></div>
+          </div>
+          <div class="visual-footer"><span><i class="legend-process"></i> Process</span><span><i class="legend-resource"></i> Resource</span><span><i class="legend-arrow"></i> Request / Allocation</span></div>
+        </div>
+      </div>
+      <section class="wrap feature-section">
+        <div class="section-heading"><div><div class="eyebrow">APA YANG BISA KAMU LAKUKAN?</div><h2>Belajar dengan <em>bereksperimen.</em></h2></div><p>Bukan hanya melihat jawaban akhir. Ikuti setiap langkah dan pahami alasan di baliknya.</p></div>
+        <div class="feature-grid">
+          <article class="feature-card"><div class="feature-icon sage">↗</div><div class="feature-number">01 / VISUALIZE</div><h3>Resource Allocation Graph</h3><p>Lihat hubungan antara proses dan resource. Bentuk siklus dan pahami kapan sistem berisiko mengalami deadlock.</p><button class="text-action" data-view="simulator" data-tab="rag">Coba RAG <span>→</span></button></article>
+          <article class="feature-card"><div class="feature-icon lavender">⌁</div><div class="feature-number">02 / ANALYZE</div><h3>Banker’s Algorithm</h3><p>Hitung Need, cek Available, dan temukan safe sequence selangkah demi selangkah.</p><button class="text-action" data-view="simulator" data-tab="banker">Coba Banker <span>→</span></button></article>
+          <article class="feature-card"><div class="feature-icon sand">✓</div><div class="feature-number">03 / PRACTICE</div><h3>Uji pemahamanmu</h3><p>Jawab pertanyaan singkat untuk memeriksa apakah konsep yang kamu pelajari sudah dipahami.</p><button class="text-action" data-view="learn" data-scroll="quiz">Mulai kuis <span>→</span></button></article>
+        </div>
+      </section>
+      <section class="wrap quote-strip"><div class="quote-mark">“</div><div><p>Tujuan simulator ini bukan menghafal istilah, melainkan memahami <em>mengapa</em> sebuah sistem aman atau bisa mengalami kebuntuan.</p><span>DEADLOCK LAB · LEARN BY EXPLORING</span></div><button class="round-arrow" data-view="simulator" aria-label="Buka simulator">↗</button></section>
+    </section>
+
+    <section class="view wrap inner-view" id="learn-view">
+      <div class="page-heading learn-heading"><div class="eyebrow">THE CONCEPTS</div><h1>Kenali masalahnya,<br><em>pahami cara kerjanya.</em></h1><p>Gunakan materi singkat ini sebagai pengantar sebelum mencoba simulasi.</p></div>
+      <div class="learn-layout">
+        <aside class="learn-sidebar"><span class="sidebar-label">DALAM MATERI INI</span><button class="lesson-link active" data-lesson="deadlock"><span>01</span> Apa itu deadlock?</button><button class="lesson-link" data-lesson="rag"><span>02</span> Resource Allocation Graph</button><button class="lesson-link" data-lesson="banker"><span>03</span> Banker’s Algorithm</button><button class="lesson-link" data-lesson="conditions"><span>04</span> Empat kondisi deadlock</button><button class="lesson-link" data-lesson="quiz"><span>05</span> Mini quiz</button></aside>
+        <div class="lesson-content" id="lesson-content"></div>
+      </div>
+    </section>
+
+    <section class="view wrap inner-view" id="simulator-view">
+      <div class="page-heading simulator-heading"><div><div class="eyebrow">INTERACTIVE PLAYGROUND</div><h1>Uji sistem dalam<br><em>lingkungan aman.</em></h1><p>Ubah skenario, jalankan langkah demi langkah, dan lihat apa yang berubah.</p></div><div class="sim-badge"><span class="pulse-dot"></span> LOCAL SIMULATION</div></div>
+      <div class="sim-shell">
+        <div class="sim-tabs"><button class="sim-tab active" data-tab="rag"><span class="tab-icon">↗</span><span><b>Simulator 01</b><small>Resource Allocation Graph</small></span></button><button class="sim-tab" data-tab="banker"><span class="tab-icon">⌁</span><span><b>Simulator 02</b><small>Banker’s Algorithm</small></span></button></div>
+        <div class="sim-panel active" id="rag-panel">
+          <div class="panel-heading"><div><div class="eyebrow">SIMULATOR 01 / RAG</div><h2>Bagaimana deadlock terbentuk?</h2><p>Perhatikan siapa memegang resource dan siapa yang sedang menunggu.</p></div><span class="state-pill neutral" id="rag-state">SIAP DIJALANKAN</span></div>
+          <div class="rag-layout">
+            <div class="rag-canvas"><div class="canvas-toolbar"><span><i class="legend-process"></i> Process</span><span><i class="legend-resource"></i> Resource</span><button id="rag-reset" class="tiny-button">Reset ↺</button></div><svg id="rag-svg" viewBox="0 0 640 350" role="img" aria-label="Grafik alokasi resource"></svg><div class="canvas-hint">Panah solid = alokasi · Panah putus-putus = permintaan</div></div>
+            <div class="control-card"><div class="control-label">SCENARIO</div><h3>Pilih skenario</h3><p>Ganti skenario untuk membandingkan sistem normal dan deadlock.</p><div class="scenario-options"><label class="scenario-option selected"><input type="radio" name="rag-scenario" value="deadlock" checked><span><b>Deadlock</b><small>Dua proses saling menunggu</small></span><i>↗</i></label><label class="scenario-option"><input type="radio" name="rag-scenario" value="safe"><span><b>Tanpa siklus</b><small>Resource masih dapat diberikan</small></span><i>↗</i></label></div><button id="rag-run" class="button primary full">Jalankan analisis <span>→</span></button><div class="step-status" id="rag-step">Siap. Tekan tombol untuk mulai.</div><div class="result-box" id="rag-result"><span class="result-symbol">◎</span><div><b>Menunggu simulasi</b><p>Analisis akan muncul di sini.</p></div></div></div>
+          </div>
+          <div class="insight-row"><span class="insight-icon">i</span><p><b>Ingat:</b> pada resource dengan satu instance, siklus dalam RAG menunjukkan deadlock. Jika resource memiliki beberapa instance, siklus saja belum tentu cukup untuk memastikan deadlock.</p></div>
+        </div>
+        <div class="sim-panel" id="banker-panel">
+          <div class="panel-heading"><div><div class="eyebrow">SIMULATOR 02 / BANKER</div><h2>Apakah sistem berada dalam kondisi aman?</h2><p>Contoh menggunakan tiga proses dan dua jenis resource. Semua angka dapat dibaca langsung dari tabel.</p></div><span class="state-pill neutral" id="banker-state">BELUM DIANALISIS</span></div>
+          <div class="banker-editor">
+            <div class="editor-heading"><div><div class="control-label">ATUR DATA SIMULASI</div><p>Ubah Allocation, Max, dan Available awal. Gunakan angka bulat 0 atau lebih.</p></div><button class="button secondary" id="banker-apply">Terapkan angka</button></div>
+            <div class="available-inputs"><b>Available awal</b><label>Resource A <input id="available-a" type="number" min="0" step="1" value="3" inputmode="numeric"></label><label>Resource B <input id="available-b" type="number" min="0" step="1" value="2" inputmode="numeric"></label></div>
+            <div class="table-wrap"><table class="data-table editable-table"><thead><tr><th>Proses</th><th colspan="2">Allocation (sedang dipegang)</th><th colspan="2">Max (kebutuhan maksimum)</th><th colspan="2">Need (otomatis)</th><th>Status</th></tr><tr class="subhead"><th></th><th>A</th><th>B</th><th>A</th><th>B</th><th>A</th><th>B</th><th></th></tr></thead><tbody id="banker-table"></tbody></table></div>
+            <div class="editor-note" id="banker-validation" aria-live="polite">Angka contoh bisa diubah sesuai skenario yang ingin kamu uji.</div>
+          </div>
+          <div class="banker-topline"><div class="available-card"><span>AVAILABLE SAAT INI</span><strong id="available-display">A = 3 <i>/</i> B = 2</strong><small>Berubah saat proses selesai dan melepas resource</small></div><div class="banker-actions"><button class="button secondary" id="banker-reset">Reset langkah</button><button class="button secondary" id="banker-prev" disabled>← Sebelumnya</button><button class="button primary" id="banker-next">Mulai analisis →</button></div></div>
+          <div class="banker-bottom"><div class="sequence-card"><div class="control-label">SAFE SEQUENCE</div><div id="sequence-display" class="sequence-flow"><span class="sequence-empty">Belum ada urutan yang dihitung</span></div><p>Urutan aman adalah urutan simulasi ketika setiap proses dapat menyelesaikan kebutuhannya.</p></div><div class="banker-log"><div class="control-label">LANGKAH ANALISIS</div><div id="banker-log-content" aria-live="polite">Tekan “Mulai analisis” untuk memeriksa proses satu per satu.</div></div></div>
+          <div class="insight-row"><span class="insight-icon">i</span><p><b>Catatan penting:</b> UNSAFE tidak otomatis berarti deadlock sudah terjadi. Artinya, algoritma tidak menemukan urutan aman berdasarkan kondisi resource yang sedang diperiksa.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="footer-brand"><span class="brand-mark small"><span></span><span></span><span></span><span></span></span><b>deadlocklab</b></div><span>Educational project · Operating Systems</span><button data-view="home">Kembali ke atas ↑</button></footer>
+  <div class="decision-overlay" id="banker-decision-overlay" aria-hidden="true" role="status" aria-live="assertive">
+    <div class="decision-backdrop"></div>
+    <div class="decision-modal" role="presentation">
+      <div class="decision-icon-wrap" id="decision-icon-wrap">
+        <svg class="decision-icon decision-check" id="decision-check" viewBox="0 0 120 120" aria-hidden="true"><circle class="decision-circle" cx="60" cy="60" r="53"/><path class="decision-mark" d="M31 62 L51 81 L91 39"/></svg>
+        <svg class="decision-icon decision-cross" id="decision-cross" viewBox="0 0 120 120" aria-hidden="true"><circle class="decision-circle" cx="60" cy="60" r="53"/><path class="decision-mark" d="M39 39 L81 81 M81 39 L39 81"/></svg>
+      </div>
+      <div class="decision-kicker" id="decision-kicker">ANALISIS SELESAI</div>
+      <h2 id="decision-title">SYSTEM SAFE</h2>
+      <p id="decision-description">Semua proses dapat diselesaikan dengan urutan aman.</p>
+      <button type="button" class="decision-dismiss" id="decision-dismiss">Lihat hasil perhitungan ↓</button>
+      <button type="button" class="decision-restore" id="decision-restore">Kembalikan contoh awal SAFE</button>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
